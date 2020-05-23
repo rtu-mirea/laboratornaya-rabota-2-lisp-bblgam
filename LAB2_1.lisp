@@ -16,10 +16,11 @@
         (t (cons (car lst) (rmNode (cdr lst) (- n 1))))))
   
 ;;Поиск эл-та
-(defun findNode (x s)
-   (cond ((null s) nil)
-         ((equal x (car s)) 0)
-         (t (+ 1 (findNode x (cdr s))))))
+(defun findNode(x s position)
+    (cond ((eq s nil) "NO ELEMENT")
+          ((= x (car s)) position)
+          (T (findNode x (cdr s) (+ position 1)))
+))
 
 
 ;;Вывод данных
@@ -29,4 +30,4 @@
  
 (format t "~a~%" (rmNode (testList) 3))
 
-(format t "~a~%" (findNode 68 (testList))) 
+(format t "~a~%" (findNode 668 (testList) 0)) 
